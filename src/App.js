@@ -19,6 +19,7 @@ class App extends Component {
     e.preventDefault();
     console.log(this.state.subreddit)
   }
+  
   render() {
 
     return (
