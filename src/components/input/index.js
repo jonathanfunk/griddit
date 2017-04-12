@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/RaisedButton';
 import styles from './mui-styles';
 
-const Input = ({ clickSubmit, inputValue }) => {
+const Input = ({ clickSubmit, onChange }) => {
 	return (
 		<Paper style={styles.container}>
 			<form style={styles.form} onSubmit={clickSubmit}>
@@ -12,7 +12,7 @@ const Input = ({ clickSubmit, inputValue }) => {
 				hintText="Type in your favorite subreddit here."
 				hintStyle={styles.hint}
 				style={styles.input}
-				onChange={inputValue}
+				onChange={onChange}
     	/>
 			<FlatButton 
 				label="Submit"
