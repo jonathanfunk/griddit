@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit } from './redux/actions';
 import './styles/App.css';
 import Input from './components/input';
+import Posts from './components/posts'
 
 class App extends Component {
 
@@ -37,10 +38,18 @@ class App extends Component {
     this.props.dispatch(selectSubreddit(this.state.subreddit))
     this.props.dispatch(fetchPostsIfNeeded(this.state.subreddit))
   }
+
+  handleRefreshClick(e) {
+    e.preventDefault()
+
+    const { dispatch, selectedSubreddit } = this.props
+    dispatch(invalidateSubreddit(selectedSubreddit))
+    dispatch(fetchPostsIfNeeded(selectedSubreddit))
+  }
   
   render() {
 
-    const { selectedSubreddit, posts, isFetching, lastUpdated } = this.props
+    const { selectedSubreddit, posts, isFetching } = this.props
 
     console.log(selectedSubreddit)
 
@@ -52,6 +61,17 @@ class App extends Component {
           onChange={this.handleChange}
         />
         <section className="griddit-section">
+        {isFetching && posts.length === 0 &&
+          <h2>Loading...</h2>
+        }
+        {!isFetching && posts.length === 0 &&
+          <h2>Empty.</h2>
+        }
+        {posts.length > 0 &&
+          <div style={{ opacity: isFetching ? 0.5 : 1 }}>
+            <Posts posts={posts} />
+          </div>
+        }
         </section>
       </div>
     );
@@ -62,7 +82,6 @@ const mapStateToProps = state => {
   const { selectedSubreddit, postsBySubreddit } = state
   const {
     isFetching,
-    lastUpdated,
     items: posts
   } = postsBySubreddit[selectedSubreddit] || {
     isFetching: true,
@@ -72,7 +91,6 @@ const mapStateToProps = state => {
     selectedSubreddit,
     posts,
     isFetching,
-    lastUpdated
   }
 }
 
