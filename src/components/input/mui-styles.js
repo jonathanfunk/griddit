@@ -1,9 +1,14 @@
 const styles = {
   container: {
-    height: 60,
-    width: 400,
-    borderRadius: 30,
-    padding: 10,
+    display: 'flex',
+    alignItems: 'center'
+  },
+  logo: {
+    color: 'white',
+  },
+  logoContainer: {
+    marginTop: 0,
+    marginLeft: 0,
   },
   form: {
     height: '100%',
@@ -12,20 +17,8 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  input: {
-    marginLeft: 15
-  },
-  hint: {
-    color: 'red',
-  },
   button: {
-    height: 50,
-    borderRadius: 25,
-    overflow: 'hidden',
-  },
-  overlay: {
-    borderRadius: 25,
-    height: 50,
+    marginLeft: 20,
   }
 }
 
