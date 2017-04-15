@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit } from './redux/actions';
 import './styles/App.css';
-import Input from './components/input';
-import Posts from './components/posts'
+import Header from './components/Header';
+import Posts from './components/Posts';
+import CircularProgress from 'material-ui/CircularProgress';
 
 class App extends Component {
 
@@ -34,14 +35,12 @@ class App extends Component {
   
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.subreddit)
     this.props.dispatch(selectSubreddit(this.state.subreddit))
     this.props.dispatch(fetchPostsIfNeeded(this.state.subreddit))
   }
 
   handleRefreshClick(e) {
     e.preventDefault()
-
     const { dispatch, selectedSubreddit } = this.props
     dispatch(invalidateSubreddit(selectedSubreddit))
     dispatch(fetchPostsIfNeeded(selectedSubreddit))
@@ -49,22 +48,24 @@ class App extends Component {
   
   render() {
 
-    const { selectedSubreddit, posts, isFetching } = this.props
+    const { selectedSubreddit, posts, isFetching, didInvalidate } = this.props
 
-    console.log(selectedSubreddit)
+    console.log('posts is...', didInvalidate)
 
     return (
       <div className="App">
-        <Input 
+        <Header 
           value={selectedSubreddit}
           clickSubmit={this.handleSubmit}
           onChange={this.handleChange}
         />
         <section className="griddit-section">
-        {isFetching && posts.length === 0 &&
-          <h2>Loading...</h2>
+        {isFetching && !didInvalidate && posts.length === 0 &&
+          <div>
+            <CircularProgress size={60} thickness={7} />
+          </div>
         }
-        {!isFetching && posts.length === 0 &&
+        {didInvalidate &&
           <h2>Empty.</h2>
         }
         {posts.length > 0 &&
@@ -82,6 +83,7 @@ const mapStateToProps = state => {
   const { selectedSubreddit, postsBySubreddit } = state
   const {
     isFetching,
+    didInvalidate,
     items: posts
   } = postsBySubreddit[selectedSubreddit] || {
     isFetching: true,
@@ -91,6 +93,7 @@ const mapStateToProps = state => {
     selectedSubreddit,
     posts,
     isFetching,
+    didInvalidate,
   }
 }
 

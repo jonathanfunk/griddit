@@ -2,3 +2,9 @@
   height: 100vh;
   width: 100vw;
 }
+.griddit-section {
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

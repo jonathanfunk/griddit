@@ -6,7 +6,7 @@ import {
   RECEIVE_POSTS
 } from './actions'
 
-export const selectedSubreddit = (state = 'reactjs', action) => {
+export const selectedSubreddit = (state = 'all', action) => {
   switch (action.type) {
   case SELECT_SUBREDDIT:
     return action.subreddit
