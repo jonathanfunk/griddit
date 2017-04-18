@@ -50,7 +50,7 @@ class App extends Component {
 
     const { selectedSubreddit, posts, isFetching, didInvalidate } = this.props
 
-    console.log('posts is...', didInvalidate)
+    console.log('posts is...', posts)
 
     return (
       <div className="App">
