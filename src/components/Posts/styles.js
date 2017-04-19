@@ -6,8 +6,10 @@ const styles = {
     padding: 40,
     boxSizing: 'border-box'
   },
+  postWrap: {
+    display: 'inline-block'
+  },
   post: {
-    display: 'inline-block',
     marginBottom: 40,
   },
   thumbnail: {

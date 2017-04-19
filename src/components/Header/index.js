@@ -1,7 +1,6 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
-import FontAwesome from 'react-fontawesome';
 import FlatButton from 'material-ui/RaisedButton';
 import styles from './styles';
 
@@ -10,7 +9,7 @@ const Header = ({ clickSubmit, onChange }) => {
 		<AppBar 
 		title="Griddit" 
 		style={styles.container}
-		iconElementLeft={<FontAwesome size='3x' name="reddit" style={styles.logo} />}
+		iconElementLeft={<i className="fa fa-reddit fa-3x" aria-hidden="true" style={{color: 'white'}}></i>}
 		iconStyleLeft={styles.logoContainer}
 		>
 		  <form style={styles.form} onSubmit={clickSubmit}>
