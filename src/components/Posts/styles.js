@@ -1,16 +1,19 @@
 const styles = {
   postContainer: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    flexWrap: 'wrap',
+    columnWidth: 500,
+    columnGap: 40,
     maxWidth: '100vw',
-    padding: '20px 10px 0',
+    padding: 40,
     boxSizing: 'border-box'
   },
   post: {
-    width: 'calc(33% - 20px)',
-    height: 500,
-    marginBottom: 20,
+    display: 'inline-block',
+    marginBottom: 40,
+  },
+  thumbnail: {
+    height: 'auto',
+    width: '100%',
+    objectFit: 'cover'
   },
   title: {
     marginTop: 0,
