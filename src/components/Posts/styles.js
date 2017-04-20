@@ -4,10 +4,11 @@ const styles = {
     columnGap: 40,
     maxWidth: '100vw',
     padding: 40,
-    boxSizing: 'border-box'
   },
   postWrap: {
-    display: 'inline-block'
+    display: 'inline-block',
+    width: '100%',
+    padding: 10,
   },
   post: {
     marginBottom: 40,
@@ -15,11 +16,12 @@ const styles = {
   thumbnail: {
     height: 'auto',
     width: '100%',
-    objectFit: 'cover'
+    marginBottom: 10
   },
   title: {
     marginTop: 0,
-    fontWeight: 'normal',
+
+    fontSize: '1rem'
   }
 }
 
