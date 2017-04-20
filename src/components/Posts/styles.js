@@ -2,7 +2,7 @@ const styles = {
   postContainer: {
     columnWidth: 500,
     columnGap: 40,
-    maxWidth: '100vw',
+    width: '100vw',
     padding: 40,
   },
   postWrap: {
