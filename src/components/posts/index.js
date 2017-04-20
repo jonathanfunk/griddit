@@ -4,8 +4,7 @@ import styles from './styles';
 import moment from 'moment'
 
 
-// var date = 1492724881;
-// console.log('moment test...', moment(date * 1000).fromNow())
+const dateCreated = (date) => moment(date * 1000).fromNow()
 
 const Posts = ({ posts }) => {
 
@@ -15,10 +14,13 @@ const Posts = ({ posts }) => {
         <Card style={styles.post} key={i}>
           <div style={styles.postWrap}>
             {post.preview &&
-             <img style={styles.thumbnail} src={post.preview.images[0].source.url.replace(/amp;/g,'')} />
+              <img 
+                style={styles.thumbnail} 
+                src={post.preview.images[0].resolutions.slice(-1)[0].url.replace(/amp;/g,'')} 
+              />
             }
           <h2 style={styles.title}>{post.title}</h2>
-          <p>Posted by {post.author} for {post.subreddit_name_prefixed}.</p>
+          <p>Posted by {post.author} {dateCreated(post.created_utc)} for {post.subreddit_name_prefixed}.</p>
           </div>
         </Card>
       )}
