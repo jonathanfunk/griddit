@@ -18,7 +18,7 @@ const Posts = ({ posts }) => (
             />
           }
           <h2 style={styles.title}>{post.title}</h2>
-          <p>Posted by {post.author} {dateCreated(post.created_utc)} for {post.subreddit_name_prefixed}.</p>
+          <p>Posted by <a href={`https://www.reddit.com/user/${post.author}`} target="_blank">{post.author}</a> {dateCreated(post.created_utc)} for <a href={`https://www.reddit.com/${post.subreddit_name_prefixed}`} target="_blank">{post.subreddit_name_prefixed}</a>.</p>
           <div style={styles.linkWrap}>
             <RaisedButton
               href={post.url}
