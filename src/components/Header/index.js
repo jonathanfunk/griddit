@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/RaisedButton';
@@ -27,5 +27,10 @@ const Header = ({ clickSubmit, onChange }) => (
     </form>
   </AppBar>
 );
+
+Header.propTypes = {
+  clickSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default Header;

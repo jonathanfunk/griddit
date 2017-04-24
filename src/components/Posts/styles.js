@@ -16,13 +16,8 @@ const styles = {
   thumbnail: {
     height: 'auto',
     width: '100%',
-    marginBottom: 10
+    marginBottom: 10,
   },
-  title: {
-    marginTop: 0,
-
-    fontSize: '1rem'
-  }
-}
+};
 
 export default styles;

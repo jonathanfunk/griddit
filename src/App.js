@@ -38,19 +38,10 @@ class App extends Component {
     this.props.dispatch(selectSubreddit(this.state.subreddit))
     this.props.dispatch(fetchPostsIfNeeded(this.state.subreddit))
   }
-
-  handleRefreshClick(e) {
-    e.preventDefault()
-    const { dispatch, selectedSubreddit } = this.props
-    dispatch(invalidateSubreddit(selectedSubreddit))
-    dispatch(fetchPostsIfNeeded(selectedSubreddit))
-  }
   
   render() {
 
     const { selectedSubreddit, posts, isFetching, didInvalidate } = this.props
-
-    console.log('posts is...', posts)
 
     return (
       <div className="App">
@@ -66,9 +57,9 @@ class App extends Component {
           </div>
         }
         {didInvalidate &&
-          <h2>Empty.</h2>
+          <h2>Oops! Failed request for {selectedSubreddit}.</h2>
         }
-        {posts.length > 0 &&
+        {posts.length > 0 && !didInvalidate &&
           <div style={{ opacity: isFetching ? 0.5 : 1 }}>
             <Posts posts={posts} />
           </div>

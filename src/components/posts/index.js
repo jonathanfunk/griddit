@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import moment from 'moment';
 import { Card } from 'material-ui/Card';
 import styles from './styles';
@@ -6,15 +6,23 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 const dateCreated = date => moment(date * 1000).fromNow();
 
+const urlDecode = (url) => {
+  const div = document.createElement('div');
+  div.innerHTML = url;
+  return div.innerText;
+};
+
 const Posts = ({ posts }) => (
   <div style={styles.postContainer}>
     {posts.map((post, i) =>
       <Card style={styles.post} key={i}>
         <div style={styles.postWrap}>
-          {post.preview &&
+
+          {post.preview && !post.media &&
             <img
+              alt={post.title}
               style={styles.thumbnail}
-              src={post.preview.images[0].resolutions.slice(-1)[0].url.replace(/amp;/g, '')}
+              src={urlDecode(post.preview.images[0].resolutions.slice(-1)[0].url)}
             />
           }
           <h2 style={styles.title}>{post.title}</h2>
@@ -36,5 +44,9 @@ const Posts = ({ posts }) => (
     )}
   </div>
 );
+
+Posts.propTypes = {
+  posts: PropTypes.array.isRequired,
+};
 
 export default Posts;
