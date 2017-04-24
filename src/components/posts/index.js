@@ -18,11 +18,13 @@ const Posts = ({ posts }) => (
       <Card style={styles.post} key={i}>
         <div style={styles.postWrap}>
           {post.preview &&
-            <img
-              alt={post.title}
-              style={styles.thumbnail}
-              src={urlDecode(post.preview.images[0].resolutions.slice(-1)[0].url)}
-            />
+            <div style={styles.imageWrap}>
+              <img
+                alt={post.title}
+                style={!post.over_18 ? styles.thumbnail : styles.sfwThumbnail}
+                src={urlDecode(post.preview.images[0].resolutions.slice(-1)[0].url)}
+              />
+            </div>
           }
           <h2 style={styles.title}>{post.title}</h2>
           <p>Posted by <a href={`https://www.reddit.com/user/${post.author}`} target="_blank">{post.author}</a> {dateCreated(post.created_utc)} for <a href={`https://www.reddit.com/${post.subreddit_name_prefixed}`} target="_blank">{post.subreddit_name_prefixed}</a>.</p>

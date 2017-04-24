@@ -13,11 +13,19 @@ const styles = {
   post: {
     marginBottom: 40,
   },
+  imageWrap: {
+    overflow: 'hidden',
+    marginBottom: 10,
+  },
   thumbnail: {
     height: 'auto',
     width: '100%',
-    marginBottom: 10,
   },
+  sfwThumbnail: {
+    height: 'auto',
+    width: '100%',
+    filter: 'blur(30px)',
+  }
 };
 
 export default styles;

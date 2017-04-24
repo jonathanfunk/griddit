@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit } from './redux/actions';
+import { selectSubreddit, fetchPostsIfNeeded } from './redux/actions';
 import './styles/App.css';
 import Header from './components/Header';
 import Posts from './components/Posts';
