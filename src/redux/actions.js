@@ -43,7 +43,6 @@ export const shouldFetchPosts = (state, subreddit) => {
     return false;
   }
   return posts.didInvalidate;
-
 };
 
 export const fetchPostsIfNeeded = (subreddit) => (dispatch, getState) => {

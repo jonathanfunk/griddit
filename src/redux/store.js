@@ -6,7 +6,7 @@ import rootReducer from './reducers';
 
 const loggerMiddleware = createLogger();
 
-export default function configureStore(preloadedState) {
+const configureStore = (preloadedState) => {
   return createStore(
     rootReducer,
     preloadedState,
@@ -16,4 +16,6 @@ export default function configureStore(preloadedState) {
       ),
     ),
   );
-}
+};
+
+export default configureStore;
