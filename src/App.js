@@ -52,12 +52,14 @@ class App extends Component {
         />
         <section className="griddit-section">
         {isFetching && !didInvalidate && posts.length === 0 &&
-          <div>
+          <div className="loadingWrap">
             <CircularProgress size={60} thickness={7} />
           </div>
         }
         {didInvalidate &&
-          <h2>Oops! Failed request for {selectedSubreddit}.</h2>
+          <div className="loadingWrap">
+            <h2>Oops! Request for {selectedSubreddit} failed.</h2>
+          </div>
         }
         {posts.length > 0 && !didInvalidate &&
           <div style={{ opacity: isFetching ? 0.5 : 1 }}>

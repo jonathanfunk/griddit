@@ -17,8 +17,7 @@ const Posts = ({ posts }) => (
     {posts.map((post, i) =>
       <Card style={styles.post} key={i}>
         <div style={styles.postWrap}>
-
-          {post.preview && !post.media &&
+          {post.preview &&
             <img
               alt={post.title}
               style={styles.thumbnail}
