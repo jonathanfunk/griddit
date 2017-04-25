@@ -1,7 +1,8 @@
 const styles = {
   container: {
     display: 'flex',
-    alignItems: 'center'
+    flexWrap: 'wrap',
+    alignItems: 'center',
   },
   logo: {
     color: 'white',
@@ -17,9 +18,12 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'space-between',
   },
+  input: {
+    width: '%100',
+  },
   button: {
     marginLeft: 20,
-  }
-}
+  },
+};
 
 export default styles;

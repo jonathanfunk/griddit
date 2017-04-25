@@ -14,7 +14,7 @@ const Header = ({ clickSubmit, onChange }) => (
   >
     <form style={styles.form} onSubmit={clickSubmit}>
       <TextField
-        hintText="Type in your favorite subreddit here."
+        hintText="Input subreddit here."
         hintStyle={styles.hint}
         style={styles.input}
         onChange={onChange}

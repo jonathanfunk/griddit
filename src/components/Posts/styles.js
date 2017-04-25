@@ -1,9 +1,9 @@
 const styles = {
   postContainer: {
     columnWidth: 500,
-    columnGap: 40,
+    columnGap: 20,
     width: '100vw',
-    padding: 40,
+    padding: 20,
   },
   postWrap: {
     display: 'inline-block',
@@ -11,7 +11,7 @@ const styles = {
     padding: 10,
   },
   post: {
-    marginBottom: 40,
+    marginBottom: 20,
   },
   imageWrap: {
     overflow: 'hidden',
@@ -25,7 +25,7 @@ const styles = {
     height: 'auto',
     width: '100%',
     filter: 'blur(30px)',
-  }
+  },
 };
 
 export default styles;
