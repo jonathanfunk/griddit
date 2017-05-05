@@ -2,7 +2,7 @@ Griddit
 ======
 
 ## Project
-Single page web application that displays top subreddit posts in a grid using Reddit API. My goal for this project is to allow the user to type in their favourite subreddit.
+Single page web application that displays top subreddit posts in a grid using Reddit API. Users have control over what subreddit they wish to display.
 
 ## Technology
 * Visual Studio Code Text Editor
